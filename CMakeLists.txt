@@ -933,6 +933,11 @@ if(PNG_TESTS AND PNG_SHARED)
                COMMAND pngimage
                OPTIONS --exhaustive --list-combos --log
                FILES ${PNGSUITE_PNGS})
+
+  # Unit test for GitHub #764 fix (sRGB composition formula validation)
+  add_executable(pngfix764 contrib/libtests/pngfix764.c)
+  png_add_test(NAME pngfix764
+               COMMAND pngfix764)
 endif()
 
 if(PNG_SHARED AND PNG_TOOLS)

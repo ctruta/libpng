@@ -1,6 +1,6 @@
 /* pngset.c - storage of image information into info struct
  *
- * Copyright (c) 2018-2025 Cosmin Truta
+ * Copyright (c) 2018-2026 Cosmin Truta
  * Copyright (c) 1998-2018 Glenn Randers-Pehrson
  * Copyright (c) 1996-1997 Andreas Dilger
  * Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.
@@ -324,7 +324,8 @@ png_set_eXIf_1(const png_struct *png_ptr, png_info *info_ptr,
    png_debug1(1, "in %s storage function", "eXIf");
 
    if (png_ptr == NULL || info_ptr == NULL ||
-       (png_ptr->mode & PNG_WROTE_eXIf) != 0)
+       (png_ptr->mode & PNG_WROTE_eXIf) != 0 ||
+       exif == NULL)
       return;
 
    new_exif = png_voidcast(png_byte *, png_malloc_warn(png_ptr, num_exif));
@@ -379,7 +380,7 @@ png_set_hIST(const png_struct *png_ptr, png_info *info_ptr,
 
    png_debug1(1, "in %s storage function", "hIST");
 
-   if (png_ptr == NULL || info_ptr == NULL)
+   if (png_ptr == NULL || info_ptr == NULL || hist == NULL)
       return;
 
    if (info_ptr->num_palette == 0 || info_ptr->num_palette

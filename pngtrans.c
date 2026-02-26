@@ -1,6 +1,6 @@
 /* pngtrans.c - transforms the data in a row (used by both readers and writers)
  *
- * Copyright (c) 2018-2025 Cosmin Truta
+ * Copyright (c) 2018-2026 Cosmin Truta
  * Copyright (c) 1998-2002,2004,2006-2018 Glenn Randers-Pehrson
  * Copyright (c) 1996-1997 Andreas Dilger
  * Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.
@@ -84,7 +84,7 @@ png_set_shift(png_struct *png_ptr, const png_color_8 *true_bits)
 {
    png_debug(1, "in png_set_shift");
 
-   if (png_ptr == NULL)
+   if (png_ptr == NULL || true_bits == NULL)
       return;
 
    png_ptr->transformations |= PNG_SHIFT;

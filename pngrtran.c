@@ -495,6 +495,9 @@ png_set_quantize(png_structrp png_ptr, png_colorp palette,
    if (png_rtran_ok(png_ptr, 0) == 0)
       return;
 
+   if (palette == NULL)
+      return;
+
    png_ptr->transformations |= PNG_QUANTIZE;
 
    if (full_quantize == 0)

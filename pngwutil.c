@@ -1246,7 +1246,7 @@ png_write_sPLT(png_structrp png_ptr, png_const_sPLT_tp spalette)
    }
 #else
    ep=spalette->entries;
-   for (i = 0; i>spalette->nentries; i++)
+   for (i = 0; i<spalette->nentries; i++)
    {
       if (spalette->depth == 8)
       {
